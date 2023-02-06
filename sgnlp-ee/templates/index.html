@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block title %}CEPeeps Cyber Detection{% endblock %}
+
+{% block body %}
+<body>
+    <div class="h-screen flex flex-col 
+                items-center justify-center">
+        <p class="text-green-700 text-xl mb-3">
+            Reddit Cyber Detection: Writen by CEPeeps
+        </p>
+
+        <form action="{{url_for('cb')}}" method="POST" onkeydown="return event.key != 'Enter';">
+
+            <!--Selector-->
+            <label class="text-gray-500 mb-2">
+                Choose Query Type
+              <select name = "qtype" placeholder = "choose" required id = "qtype" onchange="changequery()" class="mb-2 form-select mt-1 w-full">
+                 <option value="" disabled selected>Select your option</option>
+                 <option value = "url">Post URL/Link</option>
+                 <option value = "custom">Custom Query</option>
+               </select>
+            </label>
+
+            <!--URL Query-->
+            <input name='url' id="url" type="url" style="display:none" placeholder="URL/Link to Post" class="urlq mt-4 text-sm text-gray-base w-full mr-3 py-5 px-4 h-2 border border-gray-200 rounded mb-2" />
+
+            <!--Custom Query-->
+            <input name='subreddit_lst' id="subreddit_lst" type="text" style="display:none" placeholder="Subreddit List" class="customq mt-4 text-sm text-gray-base w-full mr-3 py-5 px-4 h-2 border border-gray-200 rounded mb-2" />
+            <input name = "query_lst" id = "query_lst" type = "text" style = "display:none" placeholder="Query List" class="customq mt-4 text-sm text-gray-base w-full mr-3 py-5 px-4 h-2 border border-gray-200 rounded mb-2" />
+            <select name = "sort" id = "sort" style = "display:none" class = "customq mb-2 form-select mt-1 w-full">
+                <option value="" disabled selected>Sort</option>
+                <option value="hot">Hot</option>
+                <option value="new">New</option>
+                <option value="top">Top</option>
+                <option value="rising">Rising</option>
+                <option value="controversial">Controversial</option>
+                <option value="gilded">Gilded</option>
+            </select>
+            <input name="limit" id="limit" type="integer" style="display:none" placeholder="Limit" class="customq mt-4 text-sm text-gray-base w-full mr-3 py-5 px-4 h-2 border border-gray-200 rounded mb-2" />
+
+            <button type="submit"
+                    class="bg-green-400 w-full mt-4">
+                Submit
+            </button>
+        </form>
+    </div>
+</body>
+
+{% endblock %}
+
+{% block script %}
+<script>
+    function changequery(){
+        qtype = document.getElementById("qtype").value;
+
+        customq = document.getElementsByClassName("customq")
+        urlq = document.getElementsByClassName("urlq")
+        if (qtype == "url"){
+            //document.getElementsByClassName("categoryq").hidden = true;
+            //document.getElementsByClassName("categoryq").required = false;
+            for (var i=0; i < customq.length; i++) {
+                customq[i].style.display = "none";
+                customq[i].required = false;
+            }
+
+            for (var i=0; i < urlq.length; i++) {
+                urlq[i].style.display = "block";
+                urlq[i].required = true;
+            }
+        }else{
+            for (var i=0; i < customq.length; i++) {
+                customq[i].style.display = "block";
+                customq[i].required = true;
+            }
+
+            for (var i=0; i < urlq.length; i++) {
+                urlq[i].style.display = "none";
+                urlq[i].required = false;
+            }
+        }
+    }
+</script>
+{% endblock %}

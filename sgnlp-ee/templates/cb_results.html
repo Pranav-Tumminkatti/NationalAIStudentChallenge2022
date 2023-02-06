@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}CEPeeps Cyber Detection Results{% endblock %}
+
+{% block body %}
+<body>
+    {% for post in data %}
+        
+        <div class="container px-5 py-24 mx-auto bg-gray-400 rounded-2xl">
+            <a href = "{{post[1]}}" class = "font-large text-gray-600 hover:text-blue-900"><h2>{{post[0]}}</h2></a>
+            
+            {% for issue in post[2] %}
+
+            <div class="flex bg-blue-200 rounded-lg">
+                <div class = "flex bg-blue-200 padding-2">
+                    
+                <h2 class = "flex bg-blue-200 font-medium text-grey-800">{{issue[0]}}</h2><br>
+                {{issue[1]}}
+
+                </div>
+            </div>
+            <br>
+
+            {% endfor %}
+
+        </div>
+
+    {% endfor %}
+    
+</body>
+{% endblock %}
+
+    
+
+
+  
+

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}CEPeeps Plagarism Checker{% endblock %}
+
+{% block body %}
+<body>
+    <div class="h-screen flex flex-col 
+                items-center justify-center">
+        <p class="text-green-700 text-xl mb-3">
+            Content Plagarism Checker: Writen by CEPeeps
+        </p>
+
+        <form action="{{url_for('plag_check')}}" method="POST">
+
+            <input name='content_category' type="text" placeholder="Category" class="mt-4 text-sm text-gray-base w-full mr-3 py-5 px-4 h-2 border border-gray-200 rounded mb-2 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" />
+            <input name = "content_title" type = "text" placeholder="Title" class="mt-4 text-sm text-gray-base w-full mr-3 py-5 px-4 h-2 border border-gray-200 rounded mb-2 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" />
+            <textarea name='content' class="mt-4 form-control block w-full px-3 py-1.5 text-base font-normal w-full text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" rows="3" cols="75" placeholder="Content"></textarea>
+
+            <button type="submit"
+                    class="bg-green-400 w-full mt-4">
+                Submit
+            </button>
+        </form>
+    </div>
+</body>
+{% endblock %}
+

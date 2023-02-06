@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+
+<body class="text-gray-700 bg-white" style="font-family: 'Source Sans Pro', sans-serif">
+    
+    <!--Hero-->
+    <div class="py-20" style="background: linear-gradient(90deg, #667eea 0%, #764ba2 100%)">
+        <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold mb-2 text-white">
+            CyberAbuse Detector on Reddit!
+        </h2>
+        <h3 class="text-2xl mb-8 text-gray-200">
+            + a free-to-use Plagarism Checker!
+        </h3>
+        <button onclick="window.location.href='/cb'"
+            class="bg-white font-bold rounded-full py-4 px-8 shadow-lg uppercase tracking-wider"
+        >
+            Try now!
+        </button>
+        </div>
+    </div>
+    <!-- Features -->
+    <section class="container mx-auto px-6 p-10">
+        <h2 class="text-4xl font-bold text-center text-gray-800 mb-8">
+        Why Make This?
+        </h2>
+        <div class="flex items-center flex-wrap mb-20">
+        <div class="w-full md:w-1/2">
+            <h4 class="text-3xl text-gray-800 font-bold mb-3">
+            CyberAbuse Detector
+            </h4>
+            <p class="text-gray-600 mb-8">
+            Nearly half of the 1,000 respondents - Singaporeans and permanent residents aged above 15 - had experienced some form of online harm such as being stalked online and cyberbullied.About 43 per cent of them said they would not take action because they 
+            believe it would not make a difference. Hence, our team hopes to make Singapore a more cyber-secure space,
+            by sieving out instances of cyberbullying online. Usually, these 
+            cases of cyberbullying need to be reported by users in order to come to the attention of authorities. However, our team would like to automatically detect instances of cyberbullying and alert the social media moderators. 
+            </p>
+        </div>
+        <div class="w-full md:w-1/2">
+            <img src="{{url_for('static', filename='health.svg')}}" alt="Monitoring" />
+        </div>
+        </div>
+        <div class="flex items-center flex-wrap mb-20">
+        <div class="w-full md:w-1/2">
+            <img src="{{url_for('static', filename='report.svg')}}" alt="Reporting" />
+        </div>
+        <div class="w-full md:w-1/2 pl-10">
+            <h4 class="text-3xl text-gray-800 font-bold mb-3">
+            Plagarism Checker
+            </h4>
+            <p class="text-gray-600 mb-8">
+            Plagarism negatively impacts the original creators of various published works
+            and is an unfair use of other's material. Our plagarism checker ensures that
+            any writings (eg. blogs or articles) published on the internet is free of plagiarism. This 
+            is done by cross checking with other similar writeups on the internet, and providing
+            a threshold as to how much the contents can be similar to one another before reporting cases of plagiarism.
+            </p>
+        </div>
+        </div>
+        <di class="flex items-center flex-wrap mb-20">
+        <div class="w-full md:w-1/2">
+            <h4 class="text-3xl text-gray-800 font-bold mb-3">
+            Fake News Detector (Coming Soon)
+            </h4>
+            <p class="text-gray-600 mb-8">
+            Our fake news detector is something still in the works which we were planning 
+            to implement using sgnlp's coherence modelling and rumour detection models. However, due to time constraints
+            we were unable to completely finish it. 
+            </p>
+        </div>
+        <div class="w-full md:w-1/2">
+            <img src="{{url_for('static', filename='sync.svg')}}" alt="Syncing" />
+        </div>
+        </div>
+    </section>
+</body>
+{% endblock %}
